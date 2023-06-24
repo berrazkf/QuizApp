@@ -1,0 +1,32 @@
+class QuizApp:
+    def __init__(self):
+        self.questions = []
+
+    def add_question(self, question):
+        self.questions.append(question)
+        print(f"Question '{question}' added successfully.")
+
+    def play_quiz(self):
+        if not self.questions:
+            print("No questions added.")
+        else:
+            score = 0
+            total_questions = len(self.questions)
+
+            print("Quiz Started!")
+            for question in self.questions:
+                answer = input(f"{question}: ")
+                # Check if answer is correct
+                if answer == "correct":
+                    score += 1
+
+            print(f"Quiz Completed! Score: {score}/{total_questions}")
+
+if __name__ == '__main__':
+    quiz_app = QuizApp()
+
+    quiz_app.add_question("What is the capital of France?")
+    quiz_app.add_question("Who painted the Mona Lisa?")
+    quiz_app.add_question("What is the symbol for Iron in the periodic table?")
+
+    quiz_app.play_quiz()
